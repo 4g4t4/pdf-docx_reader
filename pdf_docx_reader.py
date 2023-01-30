@@ -1,7 +1,7 @@
-
 from PyPDF2 import PdfReader
 from docx import Document
 from gtts import gTTS
+import interface
 
 # Funkcja do czytania pliku PDF
 def read_pdf(file_path):
@@ -27,22 +27,3 @@ def read_docx(file_path):
     tts = gTTS(docx_text, lang='en')
     tts.save("docx_audio.mp3")
     return docx_text
-
-# Pobierz ścieżkę pliku od użytkownika
-file_path = input("Podaj ścieżkę do pliku (PDF lub docx): ")
-
-# Sprawdź rozszerzenie pliku i wywołaj odpowiednią funkcję
-if file_path.endswith(".pdf"):
-    text = read_pdf(file_path)
-elif file_path.endswith(".docx"):
-    text = read_docx(file_path)
-else:
-    print("Nieobsługiwany format pliku")
-    text = ""
-
-
-
-
-
-
-
